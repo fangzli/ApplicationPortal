@@ -13,17 +13,13 @@ namespace ApplicationPortal.Controllers
 {
     public class ApplicationsController : Controller
     {
-        private ApplicationDBContext db = new ApplicationDBContext();
+        private ApplicationContext db = new ApplicationContext();
 
         // GET: Applications
         public ActionResult Index()
         {
-            //var applications = from m in db.Applications
-            //                   select m;
-            //return View(applications);
-            return View();
+            return View(db.Applications.ToList());
         }
-
 
         // GET: Applications/Details/5
         public ActionResult Details(int? id)
@@ -41,6 +37,7 @@ namespace ApplicationPortal.Controllers
         }
 
         // GET: Applications/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -51,7 +48,7 @@ namespace ApplicationPortal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Email,Phone,Status,Notes")] Application application)
+        public ActionResult Create([Bind(Include = "ID,Name,Email,Phone,Status,Notes,ResumeName")] Application application)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +60,39 @@ namespace ApplicationPortal.Controllers
             return View(application);
         }
 
+        // GET: Applications/Create
+        [HttpGet]
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        // POST: Resume upload
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
+                    file.SaveAs(_path);
+                    ViewBag.Message = "File Uploaded Successfully!!";
+                    return RedirectToAction("Create", new Application("", "", "", "pending", "", _FileName));
+                }
+                else {
+                    ViewBag.Message = "Empty file";
+                    return View();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                ViewBag.Message = "File upload failed!!";
+                return View();
+            }
+        }
 
         // GET: Applications/Edit/5
         public ActionResult Edit(int? id)

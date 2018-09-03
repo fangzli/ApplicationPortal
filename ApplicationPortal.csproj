@@ -55,12 +55,20 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -158,21 +166,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808300420428_Initial.cs" />
-    <Compile Include="Migrations\201808300420428_Initial.Designer.cs">
-      <DependentUpon>201808300420428_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201809030920475_InitialCreate.cs" />
+    <Compile Include="Migrations\201809030920475_InitialCreate.Designer.cs">
+      <DependentUpon>201809030920475_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808300444565_sedon.cs" />
-    <Compile Include="Migrations\201808300444565_sedon.Designer.cs">
-      <DependentUpon>201808300444565_sedon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808300456066_kate.cs" />
-    <Compile Include="Migrations\201808300456066_kate.Designer.cs">
-      <DependentUpon>201808300456066_kate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808300553505_2.cs" />
-    <Compile Include="Migrations\201808300553505_2.Designer.cs">
-      <DependentUpon>201808300553505_2.cs</DependentUpon>
+    <Compile Include="Migrations\201809031048226_init.cs" />
+    <Compile Include="Migrations\201809031048226_init.Designer.cs">
+      <DependentUpon>201809031048226_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Application.cs" />
@@ -223,10 +223,12 @@
     <Content Include="Views\Applications\Details.cshtml" />
     <Content Include="Views\Applications\Edit.cshtml" />
     <Content Include="Views\Applications\Index.cshtml" />
+    <Content Include="Views\Applications\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="UploadedFiles\" />
+    <Folder Include="Views\ResumeUpload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -242,17 +244,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808300420428_Initial.resx">
-      <DependentUpon>201808300420428_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809030920475_InitialCreate.resx">
+      <DependentUpon>201809030920475_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808300444565_sedon.resx">
-      <DependentUpon>201808300444565_sedon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808300456066_kate.resx">
-      <DependentUpon>201808300456066_kate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808300553505_2.resx">
-      <DependentUpon>201808300553505_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809031048226_init.resx">
+      <DependentUpon>201809031048226_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

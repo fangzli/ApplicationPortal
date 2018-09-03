@@ -14,7 +14,7 @@ namespace ApplicationPortal.Controllers
             return View();
         }
 
-        private ApplicationDBContext db = new ApplicationDBContext();
+        private ApplicationContext db = new ApplicationContext();
 
         public ActionResult About()
         {
@@ -28,7 +28,6 @@ namespace ApplicationPortal.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
