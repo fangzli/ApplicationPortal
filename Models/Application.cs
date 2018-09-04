@@ -21,15 +21,6 @@ namespace ApplicationPortal.Models
         public string ResumeName { get; set; }
 
         public Application() { }
-
-        public Application(string name, string email, string phone, string status, string notes, string resumeName) {
-            this.ID = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
-            this.Name = name;
-            this.Phone = phone;
-            this.Status = status;
-            this.Notes = notes;
-            this.ResumeName = resumeName;
-        }
     }
 
     public class ApplicationContext : DbContext

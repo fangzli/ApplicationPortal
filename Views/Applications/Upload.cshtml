@@ -8,14 +8,14 @@
 
 @using (Html.BeginForm("Upload", "Applications", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div>
-        @Html.TextBox("file", "", new { type = "file" }) <br />
+<div>
+    @Html.TextBox("file", "", new { type = "file" }) <br />
 
-        <input type="submit" value="Upload" />
+    <input type="submit" value="Upload" />
 
-        @ViewBag.Message
+    @ViewBag.Message
 
-    </div>
+</div>
 }
 
 <div>
